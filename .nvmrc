@@ -1,1 +1,4 @@
 18
+
+
+az webapp deployment source config-zip --resource-group learn --name davy --src ./Archive.zip
