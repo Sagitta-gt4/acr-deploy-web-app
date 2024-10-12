@@ -29,14 +29,9 @@ jobs:
 
     - name: Build Docker image
       run: docker build -t webimage:v1 .
-
-    - name: Save Docker image to a file
-      run: docker save webimage:v1 | gzip > webimage:v1.tar.gz
-
-    - name: Upload Docker image artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: webimage:v1
-        path: webimage:v1.tar.gz
+      
+    - name: Push Docker image
+      run: docker tag webimage:v1 testdavy.azurecr.io/webimage:v1
+      run: docker push testdavy.azurecr.io/webimage:v1
 
          
