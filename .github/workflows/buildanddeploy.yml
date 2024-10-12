@@ -31,7 +31,8 @@ jobs:
       run: docker build -t webimage:v1 .
       
     - name: Push Docker image
-      run: docker tag webimage:v1 testdavy.azurecr.io/webimage:v1
-      run: docker push testdavy.azurecr.io/webimage:v1
+      run: |
+        docker tag webimage:v1 testdavy.azurecr.io/webimage:v1
+        docker push testdavy.azurecr.io/webimage:v1
 
          
