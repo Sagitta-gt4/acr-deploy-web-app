@@ -7,16 +7,19 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: node20
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Build app
         run: npm run build
   deploy:
     runs-on: ubuntu-latest
-
+    needs: test
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
